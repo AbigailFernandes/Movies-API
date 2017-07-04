@@ -21,17 +21,16 @@ func fibonacci(n int, c chan int) {
 // }
 
 func main() {
-
+	// router := NewRouter()
+	// log.Fatal(http.ListenAndServe(":8080", router))
 	// var movies []Movie
-	// csvFile, _ := os.Open("../../movie_metadata.csv")
+	// csvFile, _ := os.Open("../movie_metadata.csv")
 	// reader := csv.NewReader(bufio.NewReader(csvFile))
 	// for {
-	// 	fmt.Println("hellosrse")
 	// 	line, error := reader.Read()
 	// 	if error == io.EOF {
 	// 		break
 	// 	} else if error != nil {
-	// 		fmt.Println("hellofff")
 	// 		log.Fatal(error)
 	// 	}
 	// 	movies = append(movies, Movie{
@@ -42,6 +41,17 @@ func main() {
 	// }
 	// movieJson, _ := json.Marshal(movies)
 	// fmt.Println(string(movieJson))
+	// router := mux.NewRouter().StrictSlash(true)
+	// router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	fmt.Fprintln(w, string(movieJson))
+	// })
+	// log.Fatal(http.ListenAndServe(":8080", router))
 	router := NewRouter()
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
+
+// func Index(w http.ResponseWriter, r *http.Request) {
+//
+// fmt.Println(string(movieJson))
+// fmt.Fprintf(w, string(movieJson))
+// }

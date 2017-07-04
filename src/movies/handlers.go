@@ -8,18 +8,18 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome!")
-}
+// func Index(w http.ResponseWriter, r *http.Request) {
+// 	fmt.Fprintln(w, "Welcome!")
+// }
 
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
-	todos := Todos{
-		Todo{Name: "Write presentation"},
-		Todo{Name: "Host meetup"},
-	}
+	// todos := Todos{
+	// 	Todo{Name: "Write presentation"},
+	// 	Todo{Name: "Host meetup"},
+	// }
 
 	// var movies []Movie
-	// csvFile, _ := os.Open("../../movie_metadata.csv")
+	// csvFile, _ := os.Open("../movie_metadata.csv")
 	// reader := csv.NewReader(bufio.NewReader(csvFile))
 	// for {
 	// 	// fmt.Println("hellosrse")
@@ -27,7 +27,7 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 	// 	if error == io.EOF {
 	// 		break
 	// 	} else if error != nil {
-	// 		// fmt.Println("hellofff")
+	// 		fmt.Println("hellofff")
 	// 		log.Fatal(error)
 	// 	}
 	// 	movies = append(movies, Movie{
@@ -38,9 +38,10 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 	// }
 	// movieJson, _ := json.Marshal(movies)
 	// fmt.Println(string(movieJson))
+	movies := getMovies()
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(todos); err != nil {
+	if err := json.NewEncoder(w).Encode(movies); err != nil {
 		panic(err)
 	}
 }
