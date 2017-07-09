@@ -19,15 +19,15 @@ var routes = Routes{
 		Index,
 	},
 	Route{
-		"TodoIndex",
+		"MovieShow",
 		"GET",
-		"/todos",
-		TodoIndex,
+		"/movies",
+		MovieShow,
 	},
 	Route{
-		"TodoShow",
+		"MovieIndex",
 		"GET",
-		"/todos/{todoId}",
-		TodoShow,
+		"/movies/{movieID}",
+		MovieIndex,
 	},
 }
